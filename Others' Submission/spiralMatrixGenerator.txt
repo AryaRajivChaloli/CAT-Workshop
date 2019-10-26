@@ -1,0 +1,58 @@
+print "Please enter the number of rows in the matrix - "
+row <- input
+if row < 1 then
+    print "Please enter a valid integer greater than 1"
+
+print "Please enter the number of cols in the matrix - "
+col <- input
+if col < 1 then
+    print "Please enter a valid integer greater than 1"
+
+a <- [0] //Zero matrix of order row*col
+
+direc <- "U"
+n <- row*col
+l <- 0
+RR <- 0
+DC <- col - 1
+LR <- row - 1
+UC <- 0
+
+while l != n do
+    if direc = "U" then
+        r <- RR
+        RR = RR + 1
+        for c <- 0 to col do
+            if a[r][c] = 0 then
+                a[r][c] <- l + 1
+                l <- l + 1
+        direc <- "R"
+    else if direc = "R" then
+        c <- DC
+        DC = DC - 1
+        for r <- 0 to row do
+            if a[r][c] = 0 then
+                a[r][c] <- l + 1
+                l <- l + 1
+        direc <- "D"
+    else if direc = "D" then
+        r <- LR
+        LR = LR - 1
+        for c <- col-1 to -1 do
+            if a[r][c] <- 0 then
+                a[r][c] <- l + 1
+                l <- l + 1
+        direc <- "L"
+    else if direc = "L" then
+        c <- UC
+        UC = UC - 1
+        for r <- row-1 to -1 do
+            if a[r][c] <- 0 then
+                a[r][c] <- l + 1
+                l <- l + 1
+        direc <- "U"
+
+for i <- 0 to row do
+    for j <- 0 to col do
+        print a[i][j], "   "
+    print

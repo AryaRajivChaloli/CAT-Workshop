@@ -1,0 +1,41 @@
+print "Please enter the number of rows in the matrix - "
+row <- input
+if row < 1 then
+    print "Please enter a valid integer greater than 1"
+
+print "Please enter the number of cols in the matrix - "
+col <- input
+if col < 1 then
+    print "Please enter a valid integer greater than 1"
+
+random_num_between(1, 10) //random_num_between generates a random number between the given no.s
+
+a <- randomMatrix(row, col) //Just generates a random matrix and stores in the vector "a"
+
+print "Generated Matrix:"
+
+for i <- 0 to row do
+    for j <- 0 to col do
+        print a[i][j], "   "
+    print
+
+print "Please enter the element to be searched for - "
+ele <- input
+if ele < 1 then
+    print "Please enter a valid integer greater than 1"
+
+i <- 0
+j <- col-1
+check <- 0
+
+while i < row and j >= 0 do
+    if a[i][j] = ele then
+        print "The element", ele, "has been found at location" i, j
+        check <- 1
+    if a[i][j] > ele then
+        j <- j - 1
+    else
+        i <- i + 1
+
+if check = 0 then
+    print "The element", ele, "is not present in the matrix."

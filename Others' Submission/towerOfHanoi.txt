@@ -1,0 +1,13 @@
+function solver(n, f, t, u):
+    solver(n-1, f, u, t)
+    print "Please shift Disk", n, "from Rod", f "to Rod", t
+    solver(n-1, u, t, f)
+
+print "Please enter the number of disks - "
+n <- input
+    if n < 1 then
+        print "Please enter a valid integer greater than 1"
+
+solver(n, 'F', 'T', 'U')
+
+print "Total number of moves =", (2^n) - 1
